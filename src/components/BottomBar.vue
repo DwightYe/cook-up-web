@@ -4,7 +4,7 @@
             <a class="col-md-4 linkUs">关于我们</a>
             <a class="col-md-4 linkUs">联系我们</a>
             <a class="col-md-4 linkUs">使用帮助</a>
-            <span class="col-md-12 msg-1">本站信息由网络收集及网友提供，CookUp不负责信息内容的准确性和完整性，对此亦不承担任何保证责任。</span>
+            <span class="col-md-12 msg-1">本站信息由开发人员胡编瞎造，CookUp不负责信息内容的准确性和完整性，对此亦不承担任何保证责任。</span>
             <span class="col-md-12 msg-2">Copyright © 2014 - 2018 COOKUP Inc. All Rights Never Reserved</span>
         </div>
         <div class="col-md-3 col-md-push-2">

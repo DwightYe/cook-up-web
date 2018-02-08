@@ -1,0 +1,37 @@
+<div class='row body'>
+  <div class='col-md-12 one-line'>
+    <div class='main-label col-md-1'>菜系</div>
+    <div class='col-md-10'>
+      <div class='food-label' v-for='k in cxList'>{{k}}</div>
+    </div>
+    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel"></span>
+  </div>
+  <div class='col-md-12 one-line'>
+    <div class='main-label col-md-1'>菜品</div>
+    <div class='col-md-10'>
+      <div class='food-label' v-for='k in cpList'>{{k}}</div>
+    </div>
+    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel"></span>
+  </div>
+  <div class='col-md-12 one-line'>
+    <div class='main-label col-md-1'>口味</div>
+    <div class='col-md-10'>
+      <div class='food-label' v-for='k in kwList'>{{k}}</div>
+    </div>
+    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel"></span>
+  </div>
+  <div class='col-md-12 one-line'>
+    <div class='main-label col-md-1'>厨具</div>
+    <div class='col-md-10'>
+      <div class='food-label' v-for='k in cjList'>{{k}}</div>
+    </div>
+    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel"></span>
+  </div>
+  <div class='col-md-12 one-line'>
+    <div class='main-label col-md-1'>工艺</div>
+    <div class='col-md-10'>
+      <div class='food-label' v-for='k in gyList'>{{k}}</div>
+    </div>
+    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel"></span>
+  </div>
+</div>
