@@ -5,12 +5,12 @@
         <img class="logo">
       </div>
       <div class="col-md-6">
-        <input type="text" class="form-control col-md-7 col-md-offset-1 search-input" placeholder="输入食谱名、作者、食材......">
-        <button class="btn btn-default col-md-2 col-md-push-1 search-btn">搜索食谱</button>
+        <input type="text" class="form-control col-md-7 col-md-offset-1 search-input" placeholder="输入食谱名、作者、食材......" v-model="searchKey">
+        <button class="btn btn-default col-md-2 col-md-push-1 search-btn" @click="turnToRecipes(searchKey)">搜索食谱</button>
         <div class="col-md-11 col-md-offset-1 hot-search">
-          <span>热搜1</span>|
-          <span>热搜2</span>|
-          <span>热搜3</span>
+          <span @click="turnToRecipes(hotSearch[0])">{{hotSearch[0]}}</span>|
+          <span @click="turnToRecipes(hotSearch[1])">{{hotSearch[1]}}</span>|
+          <span @click="turnToRecipes(hotSearch[2])">{{hotSearch[2]}}</span>
         </div>
       </div>
       <div class="col-md-3">
@@ -21,11 +21,23 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      searchKey: " ",
+      hotSearch: ["咖喱炒榴莲", "肥肉炖鸡皮", "青菜煮福建人"]
+    };
+  },
+  methods: {
+    turnToRecipes(k) {
+      this.$router.push("/recipes/食谱搜索/" + k);
+    }
+  }
+};
 </script>
 
 <style scoped>
-.row{
+.row {
   margin-bottom: 30px;
 }
 .body {

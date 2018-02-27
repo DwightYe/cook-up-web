@@ -26,6 +26,7 @@ export default {};
 
 <style scoped>
 .Footer {
+  margin-top: 80px;
   height: 150px;
   background-color: #222;
 }

@@ -3,35 +3,35 @@
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>菜系</div>
     <div class='col-md-10'>
-      <div class='food-label col-md-1' v-for='k in cxList'>{{k}}</div>
+      <div class='food-label col-md-1' v-for='k in cxList' @click="turnToRecipes(k)">{{k}}</div>
     </div>
     <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,cxList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>菜品</div>
     <div class='col-md-10'>
-      <div class='food-label col-md-1' v-for='k in cpList'>{{k}}</div>
+      <div class='food-label col-md-1' v-for='k in cpList' @click="turnToRecipes(k)">{{k}}</div>
     </div>
     <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,cpList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>口味</div>
     <div class='col-md-10'>
-      <div class='food-label col-md-1' v-for='k in kwList'>{{k}}</div>
+      <div class='food-label col-md-1' v-for='k in kwList'  @click="turnToRecipes(k)">{{k}}</div>
     </div>
     <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,kwList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>厨具</div>
     <div class='col-md-10'>
-      <div class='food-label col-md-1' v-for='k in cjList'>{{k}}</div>
+      <div class='food-label col-md-1' v-for='k in cjList'  @click="turnToRecipes(k)">{{k}}</div>
     </div>
     <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,cjList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>工艺</div>
     <div class='col-md-10'>
-      <div class='food-label col-md-1' v-for='k in gyList'>{{k}}</div>
+      <div class='food-label col-md-1' v-for='k in gyList'  @click="turnToRecipes(k)">{{k}}</div>
     </div>
     <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,gyList)"></span>
   </div>
@@ -349,6 +349,7 @@ export default {
     };
   },
   methods: {
+    //显示更多标签
     showMoreLabel(e, list) {
       var str = $(e.target)
         .parent()
@@ -370,6 +371,10 @@ export default {
           .parent()
           .animate({ height: "48px" }, 300);
       }
+    },
+    //标签跳转
+    turnToRecipes(k) {
+      this.$router.push("/recipes/食谱标签/" + k);
     }
   }
 };
