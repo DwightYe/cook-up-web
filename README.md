@@ -1,6 +1,6 @@
 # cook-up
 
-> A Vue.js project
+> A receipes project
 
 ## Build Setup
 
@@ -19,3 +19,27 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+npm install vue
+npm install --global vue-cli
+vue init webpack my-project
+
+npm install jquery --save-dev
+
+//webpack.base.conf.js
+var webpack = require('webpack');
+//webpack.base.conf.js-module.exports
+plugins: [
+  new webpack.ProvidePlugin({
+    $: "jquery",
+    jQuery: "jquery",
+    "windows.jQuery": "jquery"
+  })
+]
+
+//http://getbootstrap.com/docs/3.3/getting-started/#download
+//main.js
+import $ from 'jquery'
+import './assets/css/bootstrap.min.css'
+import './assets/js/bootstrap.min'
