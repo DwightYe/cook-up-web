@@ -58,7 +58,7 @@ export default {
   line-height: 40px;
 }
 .modal-footer span {
-  color: rgb(46, 130, 255);
+  color: #ff6e6e;
   cursor: pointer;
 }
 .loginInput {
@@ -75,8 +75,9 @@ export default {
   font-size: 14px;
   margin-top: 20px;
   margin-bottom: 30px;
+  background-color: #f64040;
 }
 .modal-footer {
-  background-color: #f0f6ff;
+  background-color: #ffeded;
 }
 </style>
