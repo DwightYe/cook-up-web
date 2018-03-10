@@ -1,18 +1,30 @@
 <div class="row body">
-  <div class="col-md-12">首页
+
+  <div class="col-md-12">位置
     <span class="glyphicon glyphicon-chevron-right"></span>
-    菜谱标签 - {{lable}}
+    {{foundBy}} - {{key}}
   </div>
 
   <div class="col-md-12">
-    <div class="col-md-8">
-
+    <div class="col-md-8 recipeNumber">
       <span>{{recipeNumber}}</span>个菜谱
     </div>
-
-    <div class="col-md-4 text-right">排序方式：
+    <div class="col-md-4 text-right orderBy">排序方式：
       <span>分享次数</span>丨
       <span>最新发布</span>
+    </div>
+  </div>
+
+  <div class="col-md-10 col-md-push-1">
+    <div v-for="rec in recipes" class="recipeRow">
+      <div class="oneRecipe">
+        <div class="img col-md-4" v-bind:style="{backgroundImage:'url(' + rec.pic_url + ')'}"></div>
+        <div class="col-md-8">
+          <div class="col-md-12 recipeName">{{rec.recipe_name}}</div>
+          <div class="col-md-12">创建用户：{{rec.user_id}}</div>
+          <div class="col-md-12">简介：{{rec.profile}}</div>
+        </div>
+      </div>
     </div>
   </div>
 

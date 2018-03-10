@@ -3,8 +3,6 @@
     <a class='col-md-2' @click="trunToIndex">首页</a>
     <div class='col-md-5'>
         <a class='col-md-2'>菜谱</a>
-        <a class='col-md-2'>专题</a>
-        <a class='col-md-2'>新闻</a>
         <a class='col-md-2'>搜索</a>
         <a class='col-md-2'>发布</a>
     </div>
@@ -52,7 +50,7 @@ a {
   color: #000;
 }
 a:hover {
-  background-color: #eee;
+  background-color: #ccc;
 }
 </style>
 
