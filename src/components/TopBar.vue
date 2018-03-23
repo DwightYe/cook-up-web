@@ -2,7 +2,7 @@
 <div class='top-bar row text-center'>
     <a class='col-md-2' @click="trunToIndex">首页</a>
     <div class='col-md-5'>
-        <a class='col-md-2'>菜谱</a>
+        <a class='col-md-2' @click="turnToAllRecipes">菜谱</a>
         <a class='col-md-2'>搜索</a>
         <a class='col-md-2'>发布</a>
     </div>
@@ -26,6 +26,9 @@ export default {
     },
     trunToIndex() {
       this.$router.push("/");
+    },
+    turnToAllRecipes() {
+      this.$router.push("/recipes/食谱/全部食谱");
     }
   }
 };
@@ -48,9 +51,13 @@ a {
   text-decoration: none;
   cursor: pointer;
   color: #000;
+  white-space: nowrap;
 }
 a:hover {
   background-color: #ccc;
+}
+div {
+  white-space: nowrap;
 }
 </style>
 

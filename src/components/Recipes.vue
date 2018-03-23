@@ -1,5 +1,5 @@
 <template>
-<div class="row body">
+<div class="row">
 
   <div class="col-md-12">位置
     <span class="glyphicon glyphicon-chevron-right"></span>
@@ -28,6 +28,8 @@
       </div>
     </div>
   </div>
+
+
 
 </div>
 </template>
@@ -61,9 +63,17 @@ export default {
           user_id: "筑厨梦",
           recipe_name: "私家红烧肉",
           pic_url:
-            "http://image.zhms.cn/2017-08/f8020e7487f141a2b37b1bbdc90e2ca2.jpg?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_200,w_200/watermark,image_RGVmYXVsdC9iLnBuZw==,t_35,g_se,x_10,y_10",
+            "http://image.zhms.cn/2017-07/28d921a43576492c8b4387ea244917ca.jpg?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_200,w_200/watermark,image_RGVmYXVsdC9iLnBuZw==,t_35,g_se,x_10,y_10",
           profile:
             "以五花肉为主料，肥瘦相间，肉质细腻鲜嫩，含有丰富的蛋白质和微量元素，适合多数人食用。美食美在公众号更多精彩。红肉做好之后吃起来肥而不腻。"
+        },
+        {
+          user_id: "Tommas",
+          recipe_name: "酒香蜜汁烤翅",
+          pic_url:
+            "http://image.zhms.cn/2018-02/1252af978a8a40f68601a0cfc3d688a4.JPG?x-oss-process=image/format,jpg/interlace,1/resize,m_fill,h_270,w_270/watermark,image_RGVmYXVsdC9iLnBuZw==,t_35,g_se,x_10,y_10",
+          profile:
+            "我的家人吃鸡都喜欢吃肉比较多的部位，那种鸡肉块还有鸡腿。然而我就比较喜欢吃鸡爪鸡翅。其实这种肉少的部位啊，也别有它的一番风味。酒香蜜汁烤翅，多种调料混合起来，鸡翅入味就特别好吃。又香又嫩，入口就是给人的感觉特别香、特别酥。"
         }
       ];
     }
@@ -72,11 +82,6 @@ export default {
 </script>
 
 <style scoped>
-.body {
-  width: 90%;
-  margin-left: 5%;
-}
-
 .recipeNumber span {
   font-size: 30px;
   color: #f64040;
@@ -97,7 +102,6 @@ export default {
 
 .recipeName {
   font-size: 28px;
-  margin-right: 35px;
   font-weight: 500;
   line-height: 50px;
 }
@@ -111,8 +115,6 @@ export default {
 }
 
 .oneRecipe {
-  width: 90%;
-  margin-left: 5%;
   margin-top: 10px;
   margin-bottom: 10px;
 }

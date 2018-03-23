@@ -17,9 +17,10 @@
       </div>
       <div class='modal-body'>
         <div class="row">
-          <input type="text" class="col-md-10 col-md-push-1 loginInput" placeholder="手机/邮箱/用户名">
-          <input type="text" class="col-md-10 col-md-push-1 loginInput" placeholder="密码">
-          <button class="col-md-10 col-md-push-1 btn btn-primary loginBtn">登录</button>
+          <input type="text" class="col-md-10 col-md-push-1 loginInput" placeholder="手机/邮箱/用户名" v-model="username" @keypress="pressEnter">
+          <input type="password" class="col-md-10 col-md-push-1 loginInput" placeholder="密码" v-model="password" @keypress="pressEnter">
+          <button class="col-md-10 col-md-push-1 btn btn-primary loginBtn" @click="login">登录</button>
+          <div class="col-md-10 col-md-push-1 loginFail" v-show="loginFailMes">账号密码错误，登录失败</div>
         </div>
       </div>
       <div class='modal-footer'>
@@ -35,9 +36,50 @@
 
 <script>
 export default {
+  data() {
+    return {
+      username: "",
+      password: "",
+      loginFailMes: false
+    };
+  },
   methods: {
+    //弹出登录模态框
     showModel() {
       $("#myModal").modal("show");
+    },
+    //发送登录请求
+    login() {
+      let fd = new FormData();
+      fd.append("username", this.username);
+      fd.append("password", this.password);
+      fetch("/login", {
+        method: "post",
+        body: fd
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    },
+    //登录成功
+    loginSuccess() {
+      $("#myModal").modal("hide");
+    },
+    //登录失败
+    loginFail() {
+      this.loginFailMes = true;
+    },
+    //回车登录
+    pressEnter(){
+      if (event.keyCode == 13) {
+        this.login();
+      }
     }
   }
 };
@@ -50,8 +92,6 @@ export default {
   cursor: pointer;
 }
 .modal-content {
-  margin-left: 20%;
-  width: 60%;
   border-radius: 0px;
 }
 .modal-title {
@@ -62,7 +102,6 @@ export default {
   cursor: pointer;
 }
 .loginInput {
-  padding: 10px 8px;
   border: 1px solid #ddd;
   font-size: 14px;
   color: #666;
@@ -79,5 +118,8 @@ export default {
 }
 .modal-footer {
   background-color: #ffeded;
+}
+.loginFail {
+  color: #f00;
 }
 </style>

@@ -1,39 +1,39 @@
 <template>
-<div class='row body'>
+<div class='row text-center'>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>菜系</div>
     <div class='col-md-10'>
       <div class='food-label col-md-1' v-for='k in cxList' @click="turnToRecipes(k)">{{k}}</div>
     </div>
-    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,cxList)"></span>
+    <span class='col-md-1 glyphicon glyphicon-chevron-up' @click="showMoreLabel($event,cxList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>菜品</div>
     <div class='col-md-10'>
       <div class='food-label col-md-1' v-for='k in cpList' @click="turnToRecipes(k)">{{k}}</div>
     </div>
-    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,cpList)"></span>
+    <span class='col-md-1 glyphicon glyphicon-chevron-up' @click="showMoreLabel($event,cpList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>口味</div>
     <div class='col-md-10'>
       <div class='food-label col-md-1' v-for='k in kwList'  @click="turnToRecipes(k)">{{k}}</div>
     </div>
-    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,kwList)"></span>
+    <span class='col-md-1 glyphicon glyphicon-chevron-up' @click="showMoreLabel($event,kwList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>厨具</div>
     <div class='col-md-10'>
       <div class='food-label col-md-1' v-for='k in cjList'  @click="turnToRecipes(k)">{{k}}</div>
     </div>
-    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,cjList)"></span>
+    <span class='col-md-1 glyphicon glyphicon-chevron-up' @click="showMoreLabel($event,cjList)"></span>
   </div>
   <div class='col-md-12 one-line'>
     <div class='main-label col-md-1'>工艺</div>
     <div class='col-md-10'>
       <div class='food-label col-md-1' v-for='k in gyList'  @click="turnToRecipes(k)">{{k}}</div>
     </div>
-    <span class='col-md-1 glyphicon glyphicon-chevron-down' @click="showMoreLabel($event,gyList)"></span>
+    <span class='col-md-1 glyphicon glyphicon-chevron-up' @click="showMoreLabel($event,gyList)"></span>
   </div>
 </div>
 </template>
@@ -375,16 +375,25 @@ export default {
     //标签跳转
     turnToRecipes(k) {
       this.$router.push("/recipes/食谱标签/" + k);
+    },
+    //获取标签列表
+    getAllLabel() {
+      fetch("/label/getAllLabel")
+        .then(response => {
+          return response.json();
+        })
+        .then(res => {
+          console.log(res);
+        })
+        .catch(e => {
+          console.log(e);
+        });
     }
   }
 };
 </script>
 
 <style scoped>
-.body {
-  width: 90%;
-  margin-left: 5%;
-}
 .food-label {
   color: #222;
   line-height: 36px;
@@ -402,7 +411,7 @@ export default {
 .one-line {
   margin-bottom: 18px;
   border-bottom: 1px solid #ddd;
-  height: 48px;
+
   overflow: hidden;
 }
 span {

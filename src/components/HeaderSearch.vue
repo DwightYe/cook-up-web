@@ -5,7 +5,7 @@
         <img class="logo">
       </div>
       <div class="col-md-6">
-        <input type="text" class="form-control col-md-7 col-md-offset-1 search-input" placeholder="输入食谱名、作者、食材......" v-model="searchKey">
+        <input type="text" class="col-md-7 col-md-offset-1 search-input" placeholder="输入食谱名、作者、食材......" v-model="searchKey" @keypress="pressEnter">
         <button class="btn btn-default col-md-2 col-md-push-1 search-btn" @click="turnToRecipes(searchKey)">搜索食谱</button>
         <div class="col-md-11 col-md-offset-1 hot-search">
           <span @click="turnToRecipes(hotSearch[0])">{{hotSearch[0]}}</span>|
@@ -29,8 +29,15 @@ export default {
     };
   },
   methods: {
+    //跳转到食谱列表页面
     turnToRecipes(k) {
       this.$router.push("/recipes/食谱搜索/" + k);
+    },
+    //检测回车
+    pressEnter() {
+      if (event.keyCode == 13) {
+        this.turnToRecipes(this.searchKey);
+      }
     }
   }
 };
@@ -44,7 +51,7 @@ export default {
   margin-top: 30px;
 }
 .search-input {
-  width: 60%;
+
   font-size: 17px;
   height: 45px;
 }

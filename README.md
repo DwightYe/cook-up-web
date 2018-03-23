@@ -46,3 +46,4 @@ import $ from 'jquery'
 import './assets/css/bootstrap.min.css'
 import './assets/js/bootstrap.min'
 ```
+http://www.jiathis.com/share
